@@ -34,10 +34,7 @@ public class PlayerControls : MonoBehaviour
         // Checking the player's position
         // Will draw a circle to check if player is on ground, if it is not, it will say isGrounded = False
         isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, whatIsGround);
-    }
-
-    void FixedUpdate()
-    {
+       
         if(Input.GetKey(left))
         {
             // Negative number on X axis
@@ -58,6 +55,15 @@ public class PlayerControls : MonoBehaviour
         if(Input.GetKeyDown(jump) && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Platform" && other.gameObject.layer == LayerMask.NameToLayer("Default"))
+        {
+            Platforms platformScript = other.gameObject.GetComponent<Platforms>();
+            if (platformScript != null) platformScript.ChangeLayer(gameObject.layer);
         }
     }
 }
