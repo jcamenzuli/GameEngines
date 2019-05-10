@@ -17,11 +17,14 @@ public class PlayerControls : MonoBehaviour
     public KeyCode left;
     public KeyCode right;
     public KeyCode jump;
+    public KeyCode action;
 
     public Transform groundCheckPoint;
     public float groundCheckRadius;
     public LayerMask whatIsGround;
     public bool isGrounded;
+
+    private Switch switchInRange;
    
     void Awake() 
     {
@@ -56,6 +59,11 @@ public class PlayerControls : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
         }
+
+        if (Input.GetKeyDown(action) && switchInRange != null)
+        {
+            switchInRange.Toggle();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -64,6 +72,33 @@ public class PlayerControls : MonoBehaviour
         {
             Platforms platformScript = other.gameObject.GetComponent<Platforms>();
             if (platformScript != null) platformScript.ChangeLayer(gameObject.layer);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Interactables"))
+        {
+            if (other.gameObject.tag == "Switch")
+            {
+                Switch switchScript = other.GetComponent<Switch>();
+                // for buttons
+                // if (switchScript != null) switchScript.Toggle();
+
+                if (switchScript != null) switchInRange = switchScript;
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Interactables"))
+        {
+            if (other.gameObject.tag == "Switch")
+            {
+                Switch switchScript = other.GetComponent<Switch>();
+                if (switchScript != switchInRange) switchInRange = null;
+            }
         }
     }
 }
