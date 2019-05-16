@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControls : MonoBehaviour
 {   
@@ -97,8 +98,14 @@ public class PlayerControls : MonoBehaviour
             if (other.gameObject.tag == "Switch")
             {
                 Switch switchScript = other.GetComponent<Switch>();
-                if (switchScript != switchInRange) switchInRange = null;
+                if (switchScript == switchInRange) switchInRange = null;
             }
         }
+    }
+
+
+    private void OnBecameInvisible()
+    {
+        // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
