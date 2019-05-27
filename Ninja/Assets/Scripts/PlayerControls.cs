@@ -71,6 +71,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (other.gameObject.tag == "Platform" && other.gameObject.layer == LayerMask.NameToLayer("Default"))
         {
+            if (rb.velocity.y > 0) return;
             Platforms platformScript = other.gameObject.GetComponent<Platforms>();
             if (platformScript != null) platformScript.ChangeLayer(gameObject.layer);
         }
