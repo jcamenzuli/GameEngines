@@ -5,25 +5,27 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer), typeof(BoxCollider2D), typeof(PlatformEffector2D))]
 public class Platforms : MonoBehaviour
 {
-    public static Color RED_LAYER = Color.red, BLUE_LAYER = Color.blue;
+
+    public Color normalColor, player1Color, player2Color;
 
     SpriteRenderer _renderer;
 
     private void Awake()
     {
         _renderer = GetComponent<SpriteRenderer>();
+        _renderer.color = normalColor;
     }
 
    public void ChangeLayer(int layer)
    {
        if (layer == LayerMask.NameToLayer("Red"))
        {
-           _renderer.color = RED_LAYER;
+           _renderer.color = player1Color;
        
        }
        if (layer == LayerMask.NameToLayer("Blue"))
        {
-           _renderer.color = BLUE_LAYER;
+           _renderer.color = player2Color;
        }
 
        
