@@ -107,6 +107,11 @@ public class PlayerControls : MonoBehaviour
 
     private void OnBecameInvisible()
     {
-        // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Vector3 cameraBounds = Camera.main.ViewportToWorldPoint(Vector3.zero);
+
+        if (transform.position.y < cameraBounds.y)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }

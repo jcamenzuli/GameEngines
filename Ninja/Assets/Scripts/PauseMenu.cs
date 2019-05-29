@@ -6,17 +6,17 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject Pausemenu, PauseButton;
 
-    public void Pause()
+    public void Toggle(bool pause)
     {
-        Pausemenu.SetActive (true);
-        PauseButton.SetActive (false);
-        Time.timeScale = 0;
+        Pausemenu.SetActive (pause);
+        PauseButton.SetActive (!pause);
+        Time.timeScale = pause ? 0 : 1;
     }
 
-    public void Resume()
-    {
-        Pausemenu.SetActive (false);
-        PauseButton.SetActive (true);
-        Time.timeScale = 1;
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Toggle(!Pausemenu.activeSelf);
+        }
     }
 }
