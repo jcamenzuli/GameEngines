@@ -25,6 +25,8 @@ public class PlayerControls : MonoBehaviour
     public LayerMask whatIsGround;
     public bool isGrounded;
 
+    
+    
     private Switch switchInRange;
    
     void Awake() 
@@ -70,7 +72,7 @@ public class PlayerControls : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Platform" && other.gameObject.layer == LayerMask.NameToLayer("Default"))
-        {
+        {  
 
             if (rb.velocity.y > 0 || transform.position.y < other.transform.position.y) return;
             Platforms platformScript = other.gameObject.GetComponent<Platforms>();
