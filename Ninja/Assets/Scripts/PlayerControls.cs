@@ -71,9 +71,17 @@ public class PlayerControls : MonoBehaviour
     {
         if (other.gameObject.tag == "Platform" && other.gameObject.layer == LayerMask.NameToLayer("Default"))
         {
-            if (rb.velocity.y > 0) return;
+
+            if (rb.velocity.y > 0 || transform.position.y < other.transform.position.y) return;
             Platforms platformScript = other.gameObject.GetComponent<Platforms>();
             if (platformScript != null) platformScript.ChangeLayer(gameObject.layer);
+        }
+        if (other.gameObject.tag == "GoalPlatform" && other.gameObject.layer == LayerMask.NameToLayer("Default"))
+        {
+
+            if (rb.velocity.y > 0 || transform.position.y < other.transform.position.y) return;
+            GoalPlatform goal = other.gameObject.GetComponent<GoalPlatform>();
+            if (goal != null) goal.TriggerPlayer(this,true);
         }
     }
 
@@ -90,6 +98,11 @@ public class PlayerControls : MonoBehaviour
                 if (switchScript != null) switchInRange = switchScript;
             }
         }
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("Bounds"))
+        {
+            Respawn();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -105,13 +118,8 @@ public class PlayerControls : MonoBehaviour
     }
 
 
-    private void OnBecameInvisible()
+    private void Respawn()
     {
-        Vector3 cameraBounds = Camera.main.ViewportToWorldPoint(Vector3.zero);
-
-        if (transform.position.y < cameraBounds.y)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

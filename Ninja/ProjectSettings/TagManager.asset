@@ -7,6 +7,7 @@ TagManager:
   - Platform
   - Switch
   - Button
+  - GoalPlatform
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - 
   - 
   - Interactables
-  - 
+  - Bounds
   - 
   - 
   - 
