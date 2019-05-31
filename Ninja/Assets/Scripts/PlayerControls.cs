@@ -25,6 +25,8 @@ public class PlayerControls : MonoBehaviour
     public LayerMask whatIsGround;
     public bool isGrounded;
 
+    private Animator animator;
+
     
     
     private Switch switchInRange;
@@ -32,6 +34,7 @@ public class PlayerControls : MonoBehaviour
     void Awake() 
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
     
     void Update()
@@ -67,6 +70,9 @@ public class PlayerControls : MonoBehaviour
         {
             switchInRange.Toggle();
         }
+
+        animator.SetBool("Moving", Mathf.Abs(rb.velocity.x) > 0f);
+        animator.SetBool("Jumping", !isGrounded);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
