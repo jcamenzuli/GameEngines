@@ -27,8 +27,6 @@ public class PlayerControls : MonoBehaviour
 
     private Animator animator;
 
-    
-    
     private Switch switchInRange;
    
     void Awake() 
@@ -43,6 +41,7 @@ public class PlayerControls : MonoBehaviour
         // Checking the player's position
         // Will draw a circle to check if player is on ground, if it is not, it will say isGrounded = False
         isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, whatIsGround);
+
        
         if(Input.GetKey(left))
         {
@@ -73,6 +72,7 @@ public class PlayerControls : MonoBehaviour
 
         animator.SetBool("Moving", Mathf.Abs(rb.velocity.x) > 0f);
         animator.SetBool("Jumping", !isGrounded);
+
     }
 
     private void OnCollisionEnter2D(Collision2D other)
