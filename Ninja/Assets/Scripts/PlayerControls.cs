@@ -7,7 +7,7 @@ public class PlayerControls : MonoBehaviour
 {   
     // The player's movement speed
     public float speed = 10f;
-    
+
     // The player's jump speed
     public float jumpSpeed = 20f;
 
@@ -73,7 +73,14 @@ public class PlayerControls : MonoBehaviour
         animator.SetBool("Moving", Mathf.Abs(rb.velocity.x) > 0f);
         animator.SetBool("Jumping", !isGrounded);
 
+        Flip((myRigidbody.velocity.x) < 0f);
+
     }
+
+    void Flip(bool flip)
+	{
+		_spriteRenderer.flipX = flip;
+	}
 
     private void OnCollisionEnter2D(Collision2D other)
     {
