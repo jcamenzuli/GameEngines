@@ -14,7 +14,7 @@ public class PlayerControls : MonoBehaviour
     
     // A reference to the character's rigidbody
     private Rigidbody2D rb;
-
+    private SpriteRenderer _spriteRenderer;
     public KeyCode left;
     public KeyCode right;
     public KeyCode jump;
@@ -33,6 +33,8 @@ public class PlayerControls : MonoBehaviour
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
     
     void Update()
@@ -73,7 +75,7 @@ public class PlayerControls : MonoBehaviour
         animator.SetBool("Moving", Mathf.Abs(rb.velocity.x) > 0f);
         animator.SetBool("Jumping", !isGrounded);
 
-        Flip((myRigidbody.velocity.x) < 0f);
+        Flip((rb.velocity.x) < 0f);
 
     }
 
