@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Patrol : MonoBehaviour
 {
-    private Animator animator;
+    
     public float speed;
     public float distance;
     private bool movingRight = true;
     public Transform groundDetection;
 
+    private Animator animator;
+
     void Awake()
     {
         animator = GetComponent<Animator>();
+        animator.SetBool("Moving", true);
     }
 
     void Update() {
