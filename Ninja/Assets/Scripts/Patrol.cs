@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class Patrol : MonoBehaviour
 {
+    private Animator animator;
     public float speed;
     public float distance;
     private bool movingRight = true;
     public Transform groundDetection;
+
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void Update() {
         transform.Translate(Vector2.right * speed * Time.deltaTime);
