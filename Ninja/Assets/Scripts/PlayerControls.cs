@@ -100,6 +100,11 @@ public class PlayerControls : MonoBehaviour
             GoalPlatform goal = other.gameObject.GetComponent<GoalPlatform>();
             if (goal != null) goal.TriggerPlayer(this,true);
         }
+
+        if(other.gameObject.tag == "Enemy")
+        {
+            Respawn();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

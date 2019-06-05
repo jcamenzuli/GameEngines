@@ -8,6 +8,8 @@ TagManager:
   - Switch
   - Button
   - GoalPlatform
+  - Enemy
+  - Music
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Player
   - Red
   - Blue
-  - 
+  - Enemy
   - 
   - 
   - 

@@ -1231,6 +1231,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: AI Test
       objectReference: {fileID: 0}
+    - target: {fileID: 1301780412443377105, guid: 0a16fe417c5b3f74682e58327efe6cf0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1301780412443377105, guid: 0a16fe417c5b3f74682e58327efe6cf0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1301780412443377069, guid: 0a16fe417c5b3f74682e58327efe6cf0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1300,6 +1310,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1301780411412989307, guid: 0a16fe417c5b3f74682e58327efe6cf0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1301780412443377068, guid: 0a16fe417c5b3f74682e58327efe6cf0, type: 3}
