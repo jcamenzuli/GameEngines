@@ -21,12 +21,13 @@ public class Switch : MonoBehaviour
         animator = GetComponent<Animator>();
         SetObjects();
     }
-
-    public void Toggle()
+  public void Toggle()
     {
         isActiveOnStart = !isActiveOnStart;
+        animator.SetBool("isOn", isActiveOnStart);
         SetObjects();
     }
+
 
     public void SetObjects()
     {

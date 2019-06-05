@@ -82,13 +82,7 @@ public class PlayerControls : MonoBehaviour
 
     }
 
-    public void Toggle()
-    {
-        isActiveOnStart = !isActiveOnStart;
-        animator.SetBool("isOn", isActiveOnStart);
-        SetObjects();
-    }
-
+  
     void Flip(bool flip)
 	{
 		_spriteRenderer.flipX = flip;
