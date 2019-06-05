@@ -20,6 +20,8 @@ public class PlayerControls : MonoBehaviour
     public KeyCode jump;
     public KeyCode action;
 
+    public bool isActiveOnStart;
+
     public Transform groundCheckPoint;
     public float groundCheckRadius;
     public LayerMask whatIsGround;
@@ -69,6 +71,7 @@ public class PlayerControls : MonoBehaviour
 
         if (Input.GetKeyDown(action) && switchInRange != null)
         {
+
             switchInRange.Toggle();
         }
 
@@ -77,6 +80,13 @@ public class PlayerControls : MonoBehaviour
 
         Flip((rb.velocity.x) < 0f);
 
+    }
+
+    public void Toggle()
+    {
+        isActiveOnStart = !isActiveOnStart;
+        animator.SetBool("isOn", isActiveOnStart);
+        SetObjects();
     }
 
     void Flip(bool flip)

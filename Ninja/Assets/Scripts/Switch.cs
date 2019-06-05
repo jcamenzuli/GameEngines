@@ -16,19 +16,6 @@ public class Switch : MonoBehaviour
 
     private float delay = 2.0f;
 
-    void Update()
-    {
-             if (Input.GetKeyDown(action) && switchInRange != null)
-        {
-            switchInRange.Toggle();
-            animator.SetBool("isOn", true);
-        }
-        else 
-        {
-            animator.SetBool("isOn", false);
-        }
-    }
-
     void Start() 
     {
         animator = GetComponent<Animator>();
