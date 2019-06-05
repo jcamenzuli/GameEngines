@@ -6,12 +6,32 @@ public class Switch : MonoBehaviour
 {
     public GameObject[] gameObjects;
 
+    public KeyCode action;
+
+    private Animator animator;
+
+    private Switch switchInRange;
+
     public bool isActiveOnStart = false;
 
     private float delay = 2.0f;
 
+    void Update()
+    {
+             if (Input.GetKeyDown(action) && switchInRange != null)
+        {
+            switchInRange.Toggle();
+            animator.SetBool("isOn", true);
+        }
+        else 
+        {
+            animator.SetBool("isOn", false);
+        }
+    }
+
     void Start() 
     {
+        animator = GetComponent<Animator>();
         SetObjects();
     }
 
