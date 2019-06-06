@@ -186,6 +186,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1805936609279240670, guid: 5099dd35a77ade04987ddf708c57f038,
+        type: 3}
+      propertyPath: whatIsGround.m_Bits
+      value: 513
+      objectReference: {fileID: 0}
+    - target: {fileID: 1805936609279240670, guid: 5099dd35a77ade04987ddf708c57f038,
+        type: 3}
+      propertyPath: action
+      value: 307
+      objectReference: {fileID: 0}
     - target: {fileID: 1805936609279240658, guid: 5099dd35a77ade04987ddf708c57f038,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -270,16 +280,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.x
       value: 0.8435367
-      objectReference: {fileID: 0}
-    - target: {fileID: 1805936609279240670, guid: 5099dd35a77ade04987ddf708c57f038,
-        type: 3}
-      propertyPath: whatIsGround.m_Bits
-      value: 513
-      objectReference: {fileID: 0}
-    - target: {fileID: 1805936609279240670, guid: 5099dd35a77ade04987ddf708c57f038,
-        type: 3}
-      propertyPath: action
-      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 1805936610738566031, guid: 5099dd35a77ade04987ddf708c57f038,
         type: 3}
@@ -1342,6 +1342,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1301780412443377068, guid: 0a16fe417c5b3f74682e58327efe6cf0,
+        type: 3}
+      propertyPath: jump
+      value: 119
       objectReference: {fileID: 0}
     - target: {fileID: 1301780412443377069, guid: 0a16fe417c5b3f74682e58327efe6cf0,
         type: 3}
