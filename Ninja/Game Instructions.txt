@@ -1,0 +1,7 @@
+Controls
+Player 1 - Movement - WASD
+	 - Trigger  - E
+Player 2 - Movement - Arrow Keys
+	 - Trigger  - Right Alt Key
+
+Resolution Recommended: 1920 x 1080
